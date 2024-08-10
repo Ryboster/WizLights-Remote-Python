@@ -14,10 +14,11 @@
 
 
 ### Wiring
-<div style="display: flex; align-items: center;">
-  <img src="/wiring_chart.png" alt="Wiring Diagram" style="width: 50%; margin-right: 20px;">
-  <p>Here is the wiring diagram for the infrared controlled WiZ light setup. This configuration uses an ESP32 board connected to an IR receiver, which allows you to control the WiZ light via a compatible IR remote. Ensure the connections are accurate as shown in the diagram to avoid any issues.</p>
-</div>
+![](/wiring_chart.png "")
+VCC -> 3.3v<br>
+GND -> GND<br>
+S/SIGNAL -> GPIO23<br>
+
 
 ### Install
 
