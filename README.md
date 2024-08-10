@@ -24,14 +24,14 @@ pip install --user mpremote
 
 #### Prepare board
 
-1. <b> Flash the board with micropython </b>
+1. <b> Flash the board with micropython </b> <br>
 There is already a great tutorial on this so I'm going to skip this step. All necessary links are below.
-* https://docs.micropython.org/en/latest/esp32/tutorial/intro.html
-* https://micropython.org/download/ESP32_GENERIC/
+	* https://docs.micropython.org/en/latest/esp32/tutorial/intro.html<br>
+	* https://micropython.org/download/ESP32_GENERIC/<br>
+<br>
 
-
-2. <b> Installing ir_rx </b>
-Plug your ESP32 in and make sure it's recognized by Thonny. Find out which port the device mounted at, then enter the following command to install the `ir_rx` library. Make sure the device isn't running any loops, otherwise the installation process might be afflicted.
+2. <b> Installing ir_rx </b> <br>
+Plug your ESP32 in and make sure it's recognized by Thonny. Find out which port the device mounted at, then enter the following command to install the `ir_rx` library. Make sure the device isn't running any loops, otherwise the installation process might be afflicted.<br>
 ```bash
 mpremote connect /dev/XXX mip install github:PeterHinch/micropython_ir/ir_rx
 ```
