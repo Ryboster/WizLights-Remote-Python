@@ -14,7 +14,7 @@
 
 
 ### Wiring
-![](/wiring_chart.png "")
+![](/wiring_chart.png "")<br>
 VCC -> 3.3v<br>
 GND -> GND<br>
 S/SIGNAL -> GPIO23<br>
