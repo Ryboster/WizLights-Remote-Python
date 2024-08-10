@@ -45,11 +45,11 @@ mpremote connect /dev/XXX cp ./boot.py :boot.py
 <br>
 
 ### Connect Light to the ESP32's Access Point
-Now making sure your ESP32 is running (blue light will flash), on your phone, connect to the `IoT21` Wi-Fi network with the password `EstIstEinPassword` and navigate to your WiZ app. Next pair your light with the network following instructions on screen.
-**Note** that in order to complete the pairing process, you'll need internet access which this network doesn't have. You'll have to switch networks during the pairing process as needed. Otherwise you're gonna get an error and you'll have to restart.
+Now making sure your ESP32 is running (blue light will flash), on your phone, connect to the `IoT21` Wi-Fi network with the password `EstIstEinPassword` and navigate to your WiZ app. Next pair your light with the network following instructions on screen.<br>
+**Note** that in order to complete the pairing process, you'll need internet access which this network doesn't have. You'll have to switch networks during the pairing process as needed. Otherwise you're gonna get an error and you'll have to restart.<br>
 <br>
 
-Once a connection on the light is established, that's it. Adjust your IR decoder and binds, and make sure you run `scan_for_light()` function before sending any commands to the light. This will automatically find the light's IP and save it in the working directory. Note that this has to be done every time you restart the ESP32 as it doesn't support static address allocation.<br>
+Once a connection on the light is established, that's it. Adjust your IR decoder and binds, and make sure you run `scan_for_light()` function before sending any commands to the light. This will automatically find the light's IP and save it in memory. Note that this has to be done every time you restart the ESP32 as it doesn't support static address allocation.<br>
 <br>
 https://github.com/peterhinch/micropython_ir/blob/master/RECEIVER.md<br>
 <br>
