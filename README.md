@@ -60,3 +60,13 @@ Once a connection on the light is established, that's it. Adjust your IR decoder
 <br>
 https://github.com/peterhinch/micropython_ir/blob/master/RECEIVER.md<br>
 <br>
+
+
+## Resources
+TechToTinker (2022) 044 - MicroPython TechNotes: Infrared Receiver. Available at: https://www.youtube.com/watch?v=Xch1VZgfH5c (Accessed: 10th Aug 2024).<br>
+MicroPython (n.d.) MicroPython remote control: mpremote. Available at: https://docs.micropython.org/en/latest/reference/mpremote.html (Accessed: 10th Aug 2024).<br>
+Hinch, Peter. (2023) IR Receiver. Available at: https://github.com/peterhinch/micropython_ir/blob/master/RECEIVER.md (Accessed: 10th Aug 2024).<br>
+Baylor, Bob. (2020) ir_rx: A raspberry pi IR receiver. Available at: https://github.com/BobBaylor/ir_rx (Accessed: 10th Aug 2024).<br>
+Sunfounder (n.d.) 5.14 IR Remote Control. Available at: https://docs.sunfounder.com/projects/esp32-starter-kit/en/latest/micropython/basic_projects/py_irremote.html (Accessed: 10th Aug 2024).<br>
+Nally Mc, Sean. (n.d.) WiZ UDP Code Generator. Available at: https://seanmcnally.net/wiz-config.html (Accessed: 10th Aug 2024).<br>
+<br>
