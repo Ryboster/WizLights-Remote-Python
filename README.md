@@ -13,6 +13,11 @@
 * IR remote compatible with either of the following encodings: `NEC-8`, `NEC-16`, `SAMSUNG`, `SONY_12`, `SONY_15`, `SONY_20`, `RC5_IR`, `RC6_M0`, `MCE`.<br>
 
 
+### Wiring
+![](/wiring_chart.png "")
+
+
+
 ### Install
 
 
@@ -46,7 +51,7 @@ mpremote connect /dev/XXX cp ./boot.py :boot.py
 
 ### Connect Light to the ESP32's Access Point
 Now making sure your ESP32 is running (blue light will flash), on your phone, connect to the `IoT21` Wi-Fi network with the password `EstIstEinPassword` and navigate to your WiZ app. Next pair your light with the network following instructions on screen.<br>
-**Note** that in order to complete the pairing process, you'll need internet access which this network doesn't have. You'll have to switch networks during the pairing process as needed. **Otherwise you're gonna get an error and you'll have to restart.**<br>
+**Note** that in order to complete the pairing process, you'll need internet access which this network doesn't have. You'll have to switch networks during the pairing process as needed. **Otherwise you're gonna get an error and you'll have to try again.**<br>
 <br>
 
 Once a connection on the light is established, that's it. Adjust your IR decoder and binds, and make sure you run `scan_for_light()` function before sending any commands to the light. This will automatically find the light's IP and save it in memory. Note that this has to be done every time you restart the ESP32 as it doesn't support static address allocation.<br>
