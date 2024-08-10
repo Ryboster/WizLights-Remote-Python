@@ -3,6 +3,8 @@
 ### Tested on: 
 * E27 Bulb
 * ESP32 Board
+* VS1838B
+* UNO R3 Starter Kit Remote (NEC-16)
 
 ### Requirements
 * Thonny
@@ -12,6 +14,7 @@
 
 
 ### Install
+
 
 #### Get requirements
 ```bash
@@ -34,14 +37,14 @@ mpremote connect /dev/XXX mip install github:PeterHinch/micropython_ir/ir_rx
 ```
 <br>
 
-#### Load script
+### Load script
 Navigate to /esp32 directory and enter the following command to copy `boot.py` file to your ESP32.
 ```bash
 mpremote connect /dev/XXX cp ./boot.py :boot.py
 ```
 <br>
 
-#### Connect Light to the ESP32's Access Point
+### Connect Light to the ESP32's Access Point
 Now making sure your ESP32 is running (blue light will flash), on your phone, connect to the `IoT21` Wi-Fi network with the password `EstIstEinPassword` and navigate to your WiZ app. Next pair your light with the network following instructions on screen.
 **Note** that in order to complete the pairing process, you'll need internet access which this network doesn't have. You'll have to switch networks during the pairing process as needed. Otherwise you're gonna get an error and you'll have to restart.
 <br>
