@@ -5,6 +5,7 @@
 * ESP32 Board
 * VS1838B
 * UNO R3 Starter Kit Remote (NEC-16)
+* 398GR08BEPHN0008CR Remote
 
 ### Requirements
 * Thonny

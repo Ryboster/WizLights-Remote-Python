@@ -11,7 +11,7 @@
 import network
 import time
 from machine import Pin
-from ir_rx.nec import NEC_16 # 16 bit NEC decoder
+from ir_rx.philips import RC6_M0 as decoder
 
 import socket
 
@@ -29,17 +29,12 @@ class Kek():
 
         self.LIGHT_IP = None
 
-
-
         self.ap = network.WLAN(network.AP_IF)
         self.ap.active(True)
         self.ap.config(essid=SSID, password=PASSWORD, authmode=network.AUTH_WPA2_PSK)
         self.ap.ifconfig(('192.168.0.1', '255.255.255.0', '192.168.4.1', '8.8.8.8'))
 
-        self.ir = NEC_16(Pin(23, Pin.IN), self.callback)
-
-        
-
+        self.ir = decoder(Pin(23, Pin.IN), self.callback)
 
         self.LED = Pin(2, Pin.OUT)
         self.light_toggle = False
@@ -59,10 +54,14 @@ class Kek():
                 print("scanning", addr)
                 sock.sendto(message, addr)
                 sock.settimeout(0.5)
+                self.LED.value(not self.LED.value())
                 try:
                     data, addr = sock.recvfrom(1024)
                     print(addr)
                     self.LIGHT_IP = str(addr[0])
+                
+                    time.sleep_ms(3000)
+                    
                     break
                 except OSError:
                     self.LIGHT_IP = None
@@ -84,24 +83,30 @@ class Kek():
         formatted_data = "%02x" % data
         print("data: ", formatted_data)
 
-        if formatted_data == "45" and self.light_toggle:
+        if formatted_data == "00" and self.light_toggle:
             print("light OFF")
             self.light_toggle = False
             message = b'{"id":1,"method":"setState","params":{"state":false}}'
             self.send_udp_message(self.LIGHT_IP, PORT, message)
+            time.sleep_ms(500)
 
-        elif formatted_data == "45" and not self.light_toggle:
+        elif formatted_data == "00" and not self.light_toggle:
             print("light ON")
             self.light_toggle = True
             message = b'{"id":1,"method":"setState","params":{"state":true}}'
             self.send_udp_message(self.LIGHT_IP, PORT, message)
+            message = b'{"id":1,"method":"setPilot","params":{"sceneId":13,"dimming":100}}'
+            self.send_udp_message(self.LIGHT_IP, PORT, message)
+            time.sleep_ms(500)
 
-        if formatted_data == '16':
+        if formatted_data == '01':
             print("Dimming light")
+            self.light_toggle = True
             message = '{"id":1,"method":"setPilot","params":{"temp":4166,"dimming":10}}'
             self.send_udp_message(self.LIGHT_IP, PORT, message)
+            time.sleep_ms(500)
 
-        if formatted_data == '47':
+        if formatted_data == '09':
             self.scan_for_light()
 
 
@@ -121,18 +126,3 @@ if __name__ == "__main__":
 
     finally:
         kek.LED.value(0) 
-    
-# https://www.youtube.com/watch?v=Xch1VZgfH5c
-# https://github.com/micropython/micropython/issues/8736
-# https://docs.micropython.org/en/latest/reference/mpremote.html
-# https://github.com/peterhinch/micropython_ir/blob/master/RECEIVER.md
-# https://github.com/BobBaylor/ir_rx
-# https://github.com/peterhinch/micropython-samples/blob/master/README.md#5-module-index
-# https://docs.sunfounder.com/projects/esp32-starter-kit/en/latest/micropython/basic_projects/py_irremote.html
-# https://seanmcnally.net/wiz-config.html
-# https://micropython.org/download/
-
-
-
-
-
