@@ -8,7 +8,6 @@
 # GND - GND
 # S/SIGNAL - GPIO23
 
-
 import network
 import time
 from machine import Pin
@@ -130,8 +129,10 @@ if __name__ == "__main__":
 # https://github.com/BobBaylor/ir_rx
 # https://github.com/peterhinch/micropython-samples/blob/master/README.md#5-module-index
 # https://docs.sunfounder.com/projects/esp32-starter-kit/en/latest/micropython/basic_projects/py_irremote.html
-# The ESP32 is now acting as an access point and ready to accept connections.
 # https://seanmcnally.net/wiz-config.html
 # https://micropython.org/download/
+
+
+
 
 
